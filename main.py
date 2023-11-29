@@ -1,5 +1,3 @@
-import unittest
-
 def add(x, y):
     return x + y
 
@@ -13,29 +11,17 @@ def power(x, y):
         result *= x
     return result
 
-print(add(5,4))       # --> 9
-print(multiply(3,4))  # --> 12
-print(power(2,8))     # --> 256
+def test_add():
+    assert add(5, 4) == 9
+    assert add(-3, 7) == 4
+    assert add(0, 0) == 0
 
+def test_multiply():
+    assert multiply(3, 4) == 12
+    assert multiply(-2, 3) == -6
+    assert multiply(0, 5) == 0
 
-
-
-class Tests(unittest.TestCase):
-
-    def test_add(self):
-        self.assertEqual(add(5, 4), 9)
-        self.assertEqual(add(-3, 7), 4)
-        self.assertEqual(add(0, 0), 0)
-
-    def test_multiply(self):
-        self.assertEqual(multiply(3, 4), 12)
-        self.assertEqual(multiply(-2, 3), -6)
-        self.assertEqual(multiply(0, 5), 0)
-
-    def test_power(self):
-        self.assertEqual(power(2, 8), 256)
-        self.assertEqual(power(3, 0), 1)
-        self.assertEqual(power(5, 2), 25)
-
-if __name__ == '__main__':
-    unittest.main()
+def test_power():
+    assert power(2, 8) == 256
+    assert power(3, 0) == 1
+    assert power(5, 2) == 25
